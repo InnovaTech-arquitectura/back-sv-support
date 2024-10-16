@@ -21,17 +21,12 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'temurin'  # Asegúrate de especificar la distribución
 
       - name: Build with Maven
-        run: |
-          cd demo
-          mvn clean install
+        run: mvn clean install  # Ejecutar Maven desde la raíz
 
       - name: Run tests
-        run: |
-          cd demo
-          mvn test
+        run: mvn test  # Ejecutar las pruebas desde la raíz
 
   merge:
     needs: build  # Solo si pasa el trabajo 'build'

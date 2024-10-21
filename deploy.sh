@@ -24,6 +24,9 @@ else
     export ENVIRONMENT=testing
 fi
 
+echo "Compilando el proyecto Maven..."
+mvn clean install  # Agrega este comando para compilar el proyecto
+
 echo "Deteniendo y eliminando contenedores existentes..."
 docker-compose down
 

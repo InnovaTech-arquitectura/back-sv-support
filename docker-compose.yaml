@@ -3,9 +3,9 @@ services:
     build:
       context: .  # El contexto ahora es la raíz del proyecto
       dockerfile: Dockerfile  # Nombre del Dockerfile en la raíz
-    container_name: springboot_app
+    container_name: Springboot_Support
     ports:
-      - "8080:8080"  # Puerto expuesto para la aplicación
+      - "8090:8090"  # Puerto expuesto para la aplicación
     environment:
       SPRING_PROFILES_ACTIVE: prod  # Activar el perfil de producción (o test)
     restart: always

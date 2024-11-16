@@ -9,3 +9,15 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: prod  # Activar el perfil de producción (o test)
     restart: always
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    ports:
+      - "8081:8080"  # Exponer el puerto 8081 en el host en lugar del 8080
+    restart: unless-stopped  # Reiniciar a menos que se detenga manualmente
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
